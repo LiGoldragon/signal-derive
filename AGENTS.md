@@ -11,13 +11,17 @@ and [tools-documentation](https://github.com/LiGoldragon/tools-documentation).
 
 The proc-macro crate that emits schema descriptors over
 [`signal`](https://github.com/LiGoldragon/signal) record kinds.
-Designed in [mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md).
 
-The single derive: `#[derive(Schema)]` on a struct or enum in
-signal. The macro emits an `impl signal::Kind for T` block whose
-`DESCRIPTOR` const describes the type's shape — name, fields,
-field-types, enum variants. mentci-lib's `CompiledSchema` walks
-that descriptor; nexus-daemon's renderer eventually does the same.
+**Role: bootstrap projection source.** The `DESCRIPTOR` consts
+this macro emits are the **input to the seed step** that
+populates sema with `KindDecl` / `FieldDecl` / `VariantDecl`
+records at engine boot. They are NOT the runtime catalogue —
+runtime consumers query sema, not `ALL_KINDS`.
+
+See [mentci/reports/119](https://github.com/LiGoldragon/mentci/blob/main/reports/119-schema-in-sema-corrected-direction-2026-04-30.md)
+for the corrected direction and beads `mentci-next-lvg` for the
+in-flight consumer-side correction. Originally designed in
+[reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md).
 
 ## What this crate is not
 

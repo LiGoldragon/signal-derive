@@ -2,10 +2,24 @@
 //! record kinds.
 //!
 //! Emits an `impl signal::Kind for T` block whose `DESCRIPTOR`
-//! const describes the type's shape. Consumers (mentci-lib's
-//! `CompiledSchema`, nexus-daemon's renderer) walk the descriptor
-//! at compile time. Designed in
-//! [mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md).
+//! const describes the type's shape.
+//!
+//! **Role: bootstrap projection source.** Per
+//! [mentci/reports/119](https://github.com/LiGoldragon/mentci/blob/main/reports/119-schema-in-sema-corrected-direction-2026-04-30.md),
+//! the runtime authority for "what kinds exist" is sema-resident
+//! `KindDecl` / `FieldDecl` / `VariantDecl` records. The
+//! `DESCRIPTOR` consts this macro emits feed the seed step that
+//! projects them into sema at engine boot — they are NOT the
+//! runtime catalogue. mentci-lib's constructor flow + nexus
+//! renderer + agents query sema for schema, never `ALL_KINDS`.
+//!
+//! See beads `mentci-next-lvg` — the consumer-side correction is
+//! in flight; the macro and emitted const stay as the bootstrap
+//! mechanism.
+//!
+//! Originally designed in
+//! [mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md);
+//! corrected by [reports/119](https://github.com/LiGoldragon/mentci/blob/main/reports/119-schema-in-sema-corrected-direction-2026-04-30.md).
 //!
 //! Field-type mapping (per [reports/115 §1](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md#1--type--fieldtype-mapping)):
 //!
