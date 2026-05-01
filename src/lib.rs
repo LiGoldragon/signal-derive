@@ -4,24 +4,15 @@
 //! Emits an `impl signal::Kind for T` block whose `DESCRIPTOR`
 //! const describes the type's shape.
 //!
-//! **Role: bootstrap projection source.** Per
-//! [mentci/reports/119](https://github.com/LiGoldragon/mentci/blob/main/reports/119-schema-in-sema-corrected-direction-2026-04-30.md),
-//! the runtime authority for "what kinds exist" is sema-resident
-//! `KindDecl` / `FieldDecl` / `VariantDecl` records. The
-//! `DESCRIPTOR` consts this macro emits feed the seed step that
-//! projects them into sema at engine boot — they are NOT the
-//! runtime catalogue. mentci-lib's constructor flow + nexus
-//! renderer + agents query sema for schema, never `ALL_KINDS`.
+//! **Status: role under review.** Per criome's `ARCHITECTURE.md`
+//! §10.2 + §10.3, the runtime authority for "what kinds exist" is
+//! sema-resident records, constructed by criome's init at engine
+//! boot. The `DESCRIPTOR` consts this macro emits no longer have an
+//! obvious consumer. The crate's continuation, repurposing, or
+//! retirement is tracked under bd issue `mentci-next-4v6`. The
+//! mechanism stays in place pending decision.
 //!
-//! See beads `mentci-next-lvg` — the consumer-side correction is
-//! in flight; the macro and emitted const stay as the bootstrap
-//! mechanism.
-//!
-//! Originally designed in
-//! [mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md);
-//! corrected by [reports/119](https://github.com/LiGoldragon/mentci/blob/main/reports/119-schema-in-sema-corrected-direction-2026-04-30.md).
-//!
-//! Field-type mapping (per [reports/115 §1](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md#1--type--fieldtype-mapping)):
+//! Field-type mapping:
 //!
 //! - `String` → `FieldType::Text`
 //! - `bool` → `FieldType::Bool`
@@ -32,8 +23,7 @@
 //! - `Slot<AnyKind>` → `FieldType::AnyKind`
 //! - `Vec<T>` → `is_list: true` + the inner T's mapping
 //! - `Option<T>` → `is_optional: true` + the inner T's mapping
-//! - any other path → `FieldType::Record { kind_name: "..." }`,
-//!   with resolution deferred to the consumer via `ALL_KINDS`.
+//! - any other path → `FieldType::Record { kind_name: "..." }`.
 
 use proc_macro::TokenStream;
 use proc_macro2::TokenStream as TokenStream2;
