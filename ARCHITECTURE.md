@@ -1,7 +1,7 @@
 # Architecture — signal-derive
 
-Schema-introspection proc-macros over [signal](https://github.com/LiGoldragon/signal)
-record kinds. Designed in [mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md).
+Schema-introspection proc-macros over signal
+record kinds. Designed in workspace/reports/115.
 
 ## Role
 
@@ -25,7 +25,7 @@ nexus-daemon's renderer when wired) walk it without runtime cost.
   `FieldType`, `KindShape`, the `Kind` trait, the `ALL_KINDS`
   catalogue) — those live in `signal`.
 - Codec impls (`NotaRecord`, `NotaEnum`, etc.) — those are
-  `nota-derive`'s concern. See [lore/programming/abstractions.md §"The wrong-noun trap"](https://github.com/LiGoldragon/lore/blob/main/programming/abstractions.md)
+  `nota-derive`'s concern. See lore/programming/abstractions.md §"The wrong-noun trap"
   for why.
 
 ## Code map
@@ -45,9 +45,9 @@ incrementally as kinds onboard.)
 
 ## Cross-cutting context
 
-- [criome/ARCHITECTURE.md](https://github.com/LiGoldragon/criome/blob/main/ARCHITECTURE.md)
+- criome/ARCHITECTURE.md
   for the engine that consumes signal records.
-- [mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md)
+- workspace/reports/115
   for the design.
 
 ## Status

@@ -1,6 +1,6 @@
 # signal-derive
 
-Schema-introspection proc-macros over [signal](https://github.com/LiGoldragon/signal)
+Schema-introspection proc-macros over signal
 record kinds.
 
 ```rust
@@ -18,5 +18,5 @@ types, enum variants — at compile time. Consumers walk the
 descriptor without runtime cost.
 
 See [ARCHITECTURE.md](ARCHITECTURE.md) for the role and
-[mentci/reports/115](https://github.com/LiGoldragon/mentci/blob/main/reports/115-schema-derive-design-2026-04-30.md)
+workspace/reports/115
 for the design.

@@ -4,12 +4,8 @@ You **MUST** read AGENTS.md at `github:ligoldragon/lore` — the workspace contr
 
 ## Repo role
 
-A proc-macro crate emitting compile-time schema descriptors over [signal](https://github.com/LiGoldragon/signal) record kinds.
+A proc-macro crate emitting compile-time schema descriptors over signal record kinds.
 
----
+## Status
 
-## Status — direction under review
-
-**Do not extend this crate's role without a fresh decision.** Per the rejected frames in [criome/ARCHITECTURE.md §10.1](https://github.com/LiGoldragon/criome/blob/main/ARCHITECTURE.md) (`nexus-as-storage`, `sema-as-string-store`, `seed-from-nexus-files`), the originally-intended use of this crate's emitted consts as a "bootstrap projection source" feeding nexus seed files is **wrong**. Schema bootstrap is hand-coded in criome's init; domain kinds enter sema through Assert frames at runtime. The compile-time-baked-data shape this crate produces no longer has a clear consumer.
-
-The crate's continuation, repurposing, or retirement is tracked under bd issue covering signal-derive direction. Its `KindDescriptor` const + `#[derive(Schema)]` mechanism still works; what's open is whether anyone should be using it.
+The crate's role is open: schema bootstrap is hand-coded in criome's init, and domain kinds enter sema through Assert frames at runtime, so the original consumer for these compile-time descriptors no longer applies. Tracked under bd issue covering signal-derive direction. The `KindDescriptor` const + `#[derive(Schema)]` mechanism remains in place pending decision.
