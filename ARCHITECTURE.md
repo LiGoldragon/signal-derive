@@ -25,7 +25,7 @@ nexus-daemon's renderer when wired) walk it without runtime cost.
   `FieldType`, `KindShape`, the `Kind` trait, the `ALL_KINDS`
   catalogue) — those live in `signal`.
 - Codec impls (`NotaRecord`, `NotaEnum`, etc.) — those are
-  `nota-derive`'s concern. See [tools-documentation/programming/abstractions.md §"The wrong-noun trap"](https://github.com/LiGoldragon/tools-documentation/blob/main/programming/abstractions.md)
+  `nota-derive`'s concern. See [lore/programming/abstractions.md §"The wrong-noun trap"](https://github.com/LiGoldragon/lore/blob/main/programming/abstractions.md)
   for why.
 
 ## Code map
