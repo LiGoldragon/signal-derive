@@ -17,6 +17,4 @@ This emits an `impl signal::Kind for Node` block whose
 types, enum variants — at compile time. Consumers walk the
 descriptor without runtime cost.
 
-See `ARCHITECTURE.md` for the role and
-workspace/reports/115
-for the design.
+See `ARCHITECTURE.md` for the role.
