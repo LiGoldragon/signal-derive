@@ -1,7 +1,5 @@
 # Agent instructions — signal-derive
 
-You **MUST** read AGENTS.md at `github:ligoldragon/lore` — the workspace contract.
-
 ## Repo role
 
 A proc-macro crate emitting compile-time schema descriptors over signal record kinds.
