@@ -10,8 +10,8 @@ that participates in the signal record vocabulary, emit an
 `impl signal::Kind for T` block describing the type's shape.
 
 The shape lives in `signal::KindDescriptor`. The descriptor is a
-compile-time constant; consumers (mentci-lib's `CompiledSchema`,
-nexus-daemon's renderer when wired) walk it without runtime cost.
+compile-time constant; consumers (mentci-lib's `CompiledSchema`)
+walk it without runtime cost.
 
 ## Owns
 
